@@ -1,0 +1,10 @@
+:root {
+  --font-family: sans-serif;
+  --menu-button-color: #2b3a4e;
+  --active-button-color: #ff4d4d;
+  --bg-color-buttonMenu: rgba(255, 77, 77, 0.1);
+  --background-page-color: #ffffff;
+  --logo-color: #111111;
+  --text-color-title: #263141;
+  --bg-input-color: #f2f5f9;
+}
