@@ -1,7 +1,7 @@
 import "./App.css";
 import "../Variables/Variables.css";
 import { MobileMenu } from "../MobileMenu";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { HomePage } from "@Pages/index";
 import { Header } from "@components/Header";
 

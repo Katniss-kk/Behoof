@@ -32,7 +32,7 @@ function MenuItem({ to, IconComponent }: MenuItemProps) {
 
 export default function MobileMenuUI() {
   return (
-    <div className="flex gap-[5px] justify-center align-center">
+    <div className="flex gap-1 justify-center align-center">
       <MenuItem to="/" IconComponent={HomeButton} />
       <MenuItem to="/search" IconComponent={SearchButton} />
       <MenuItem to="/favorite" IconComponent={FavoriteButton} />

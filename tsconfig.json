@@ -24,7 +24,9 @@
       "@Pages/*": ["src/components/Pages/*"],
       "@components/*": ["src/components/*"],
       "@constants/*": ["src/constants/*"],
-      "@types/*": ["src/types/*"]
+      "@types/*": ["src/types/*"],
+      "@image/*": ["public/image/*"],
+      "@assets/*": ["src/assets/*"]
     }
   },
   "include": ["src"],
