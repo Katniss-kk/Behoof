@@ -12,6 +12,10 @@
   --text-owner-color: #ff4d4d;
   --button-text-color: #ffffff;
   --button-bg-color: #ff4d4d;
-  --bg-catalog-color: #F2F5F9;
-  --bg-carousel-color: #FDFDFD;
+  --bg-category-color: #f2f5f9;
+  --bg-carousel-color: #fdfdfd;
+  --text-title-productColor: #7e8794;
+  --border-color-button: #f2f5f9;
+  --bg-color-raiting: #ECEEEF;
+  --bg-color-raitingActive: #FF4D4D
 }

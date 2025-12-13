@@ -1,10 +1,10 @@
-import { IProduct } from "@/types/types";
+import { ICategory } from "@/types/types";
 
 import phoneImg from "@/assets/phone.png";
 import notebookImg from "@/assets/notebook.png";
 import laptopImg from "@/assets/laptop.png";
 
-const CatalogInfo: IProduct[] = [
+const CategoryInfo: ICategory[] = [
   {
     title: "Смартфоны",
     img: phoneImg,
@@ -37,4 +37,4 @@ const CatalogInfo: IProduct[] = [
   },
 ];
 
-export default CatalogInfo;
+export default CategoryInfo;
