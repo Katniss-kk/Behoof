@@ -16,6 +16,7 @@ const ProductGradeCard: IProductsCardCarousel[] = [
       answer: 5,
       portability: 4,
     },
+    price: "114 099",
   },
   {
     type: "Телефон",
@@ -29,6 +30,7 @@ const ProductGradeCard: IProductsCardCarousel[] = [
       answer: 2,
       portability: 3,
     },
+    price: "120 099",
   },
   {
     type: "Телефон",
@@ -42,6 +44,7 @@ const ProductGradeCard: IProductsCardCarousel[] = [
       answer: 2,
       portability: 3,
     },
+    price: "105 099",
   },
   {
     type: "Планшет",
@@ -55,6 +58,7 @@ const ProductGradeCard: IProductsCardCarousel[] = [
       answer: 5,
       portability: 3,
     },
+    price: "90 199",
   },
 ];
 

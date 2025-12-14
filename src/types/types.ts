@@ -50,9 +50,28 @@ export interface IProductsCardCarousel {
     answer: number;
     portability: number;
   };
+  price: string;
 }
 
 export interface ProductsCardCarouselUIProps {
   CarouselProops: ICardCarousel;
   Products: IProductsCardCarousel[];
+}
+
+export interface BlockInfoItem {
+  number: string;
+  text: string;
+}
+
+export interface BlockInfoPage {
+  title: string;
+  items: BlockInfoItem[];
+}
+
+export interface IBannerDownloadApp {
+  text: string;
+  highlight: string;
+  imgAppleImg: string;
+  imgGoogleImg: string;
+  phoneLogoImg: string;
 }

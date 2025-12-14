@@ -16,6 +16,10 @@
   --bg-carousel-color: #fdfdfd;
   --text-title-productColor: #7e8794;
   --border-color-button: #f2f5f9;
-  --bg-color-raiting: #ECEEEF;
-  --bg-color-raitingActive: #FF4D4D
+  --bg-color-raiting: #eceeef;
+  --bg-color-raitingActive: #ff4d4d;
+  --bg-menu-color: #fdfdfd;
+  --border-menu-color: #eceeef;
+  --text-paragraph-color: #263141;
+  --bg-card-color: #F6F7FA;
 }

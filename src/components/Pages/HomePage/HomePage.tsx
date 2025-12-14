@@ -1,6 +1,9 @@
 import { AdBanner } from "@/components/AdBanner";
+import BannerDownloadApp from "@/components/BannerDownloadApp/BannerDownloadApp";
+import BlockInfo from "@/components/BlockInfo";
 import { Catalog } from "@/components/CategoryCarousel";
 import ProductsCardCarousel from "@/components/ProductsCardCarousel";
+import ProductsCharacteristicsCarousel from "@/components/ProductsCharacteristicsCarousel";
 import { SearchInput } from "@components/SearchInput";
 
 export default function HomePage() {
@@ -13,6 +16,11 @@ export default function HomePage() {
       </div>
       <div className="bg-[var(--bg-category-color)] px-4">
         <Catalog />
+        <ProductsCharacteristicsCarousel />
+      </div>
+      <div className="px-4">
+        <BlockInfo />
+        <BannerDownloadApp />
         <ProductsCardCarousel />
       </div>
     </div>
