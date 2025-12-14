@@ -1,6 +1,6 @@
-import type { BlockInfoPage } from "@/types/types";
+import type { IBlockInfoPage } from "@/types/types";
 
-const BlockInfoPage: BlockInfoPage = {
+const BlockInfoPage: IBlockInfoPage = {
   title: 'Наша цель - создать фантастический сервис для всех потребителей',
   items: [
     {

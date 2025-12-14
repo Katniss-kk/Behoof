@@ -1,10 +1,10 @@
-const ArrowSvg = ({ fill }: { fill?: string }) => {
+const ArrowSvg = ({fill}: {fill?: string}) => {
   return (
     <svg
       width="8"
       height="14"
       viewBox="0 0 8 14"
-      fill={fill}
+      fill={fill || "none"}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -18,4 +18,4 @@ const ArrowSvg = ({ fill }: { fill?: string }) => {
   );
 };
 
-export default ArrowSvg;
+export default ArrowSvg

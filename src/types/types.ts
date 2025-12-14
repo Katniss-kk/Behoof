@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 export interface MenuItemProps {
   to: string;
   IconComponent: React.ComponentType<{ fill: string }>;
+  title: string;
 }
 
 export interface IBanners {
@@ -63,7 +64,7 @@ export interface BlockInfoItem {
   text: string;
 }
 
-export interface BlockInfoPage {
+export interface IBlockInfoPage {
   title: string;
   items: BlockInfoItem[];
 }
@@ -74,4 +75,15 @@ export interface IBannerDownloadApp {
   imgAppleImg: string;
   imgGoogleImg: string;
   phoneLogoImg: string;
+}
+
+export interface IArticles {
+  title: string;
+  img: string;
+  about: string;
+}
+
+export interface ArticlesCardCarouselUIProps {
+  CarouselProops: ICardCarousel;
+  Articles: IArticles[];
 }

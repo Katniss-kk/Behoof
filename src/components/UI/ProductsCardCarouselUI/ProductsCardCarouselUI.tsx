@@ -63,7 +63,7 @@ export default function ProductsCardCarouselUI({
           К новинкам <ArrowSvg fill="var(--text-owner-color)" />
         </NavLink>
       </div>
-      <CardCarousel {...CarouselCardProps} />;
+      <CardCarousel {...CarouselCardProps} />
     </div>
   );
 }

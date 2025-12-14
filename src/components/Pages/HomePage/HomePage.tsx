@@ -1,4 +1,5 @@
 import { AdBanner } from "@/components/AdBanner";
+import ArticlesCarousel from "@/components/ArticlesCarousel";
 import BannerDownloadApp from "@/components/BannerDownloadApp/BannerDownloadApp";
 import BlockInfo from "@/components/BlockInfo";
 import { Catalog } from "@/components/CategoryCarousel";
@@ -22,6 +23,7 @@ export default function HomePage() {
         <BlockInfo />
         <BannerDownloadApp />
         <ProductsCardCarousel />
+        <ArticlesCarousel />
       </div>
     </div>
   );

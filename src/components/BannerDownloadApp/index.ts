@@ -1,1 +1,1 @@
-export { defualt } from "./BannerDownloadApp";
+export { default } from "./BannerDownloadApp";

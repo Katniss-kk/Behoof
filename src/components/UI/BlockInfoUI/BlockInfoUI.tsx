@@ -1,9 +1,9 @@
-import { BlockInfoPage } from "@/types/types";
+import { IBlockInfoPage } from "@/types/types";
 
-export default function BlockInfoUI({ data }: { data: BlockInfoPage }) {
+export default function BlockInfoUI({ data }: { data: IBlockInfoPage }) {
   return (
     <div>
-      <h2 className="[font-family:var(--font-family)] font-semibold text-base text-[var(--text-title-color)] mb-4">
+      <h2 className="[font-family:var(--font-family)] font-semibold text-base text-[var(--text-title-color)] mb-4 mt-2.5">
         {data.title}
       </h2>
       {data.items.map((item) => (
