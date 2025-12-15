@@ -1,5 +1,11 @@
+import { useLocation } from "react-router-dom";
 import { MobileMenuUI } from "../UI";
 
 export default function MobileMenu() {
-  return <MobileMenuUI/>
+  const location = useLocation();
+  if (location.pathname === "/catalog") {
+    return null;
+  }
+
+  return <MobileMenuUI />;
 }

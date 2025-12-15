@@ -21,7 +21,7 @@ export const HomeButton = ({ fill }: { fill: string }) => {
   );
 };
 
-export const SearchButton = ({ fill }: { fill: string }) => {
+export const CatalogButton = ({ fill }: { fill: string }) => {
   return (
     <svg
       width="21"

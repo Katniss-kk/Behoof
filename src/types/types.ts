@@ -87,3 +87,25 @@ export interface ArticlesCardCarouselUIProps {
   CarouselProops: ICardCarousel;
   Articles: IArticles[];
 }
+
+export interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: ReactNode;
+}
+
+interface CatalogLinks {
+  title: string;
+  link: string;
+  svg: boolean;
+}
+
+export interface ICatalogButton {
+  title: string;
+  links: CatalogLinks[];
+}
+
+export interface CatalogButtonProps {
+  onBack?: () => void;
+  proops: ICatalogButton;
+}

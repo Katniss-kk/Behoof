@@ -1,6 +1,6 @@
 export {
   HomeButton,
-  SearchButton,
+  CatalogButton,
   FavoriteButton,
   ComparisonButton,
   ProfileButton,

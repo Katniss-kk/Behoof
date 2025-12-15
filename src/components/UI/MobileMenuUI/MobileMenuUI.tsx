@@ -1,7 +1,7 @@
 import { MenuItemProps } from "@/types/types";
 import {
   HomeButton,
-  SearchButton,
+  CatalogButton,
   FavoriteButton,
   ComparisonButton,
   ProfileButton,
@@ -39,7 +39,7 @@ export default function MobileMenuUI() {
   return (
     <div className="flex gap-x-4 justify-center align-center p-1.5 fixed bottom-0 left-0 right-0 z-50 bg-[var(--bg-menu-color)] border-[var(--border-menu-color)] border-solid border">
       <MenuItem to="/" IconComponent={HomeButton} title={"Главная"} />
-      <MenuItem to="/search" IconComponent={SearchButton} title={"Каталог"} />
+      <MenuItem to="/catalog" IconComponent={CatalogButton} title={"Каталог"} />
       <MenuItem
         to="/favorite"
         IconComponent={FavoriteButton}
