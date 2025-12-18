@@ -1,6 +1,6 @@
 import { IBanners } from "@/types/types";
 import { NavLink } from "react-router-dom";
-import ArrowSvg from "@/constants/ArrowSVG";
+import ArrowSvg from "@/assets/SVG/ArrowSVG";
 
 export default function AdBannerUI({ Banners }: { Banners: IBanners[] }) {
   return (

@@ -1,6 +1,6 @@
 import CardsButtons from "@/components/Buttons/CardsButtons/CardsButtons";
 import CardCarousel from "@/components/CardCarousel";
-import ArrowSvg from "@/constants/ArrowSVG";
+import ArrowSvg from "@/assets/SVG/ArrowSVG";
 import { ICardCarousel, ProductsCardCarouselUIProps } from "@/types/types";
 import { NavLink } from "react-router-dom";
 
@@ -58,7 +58,7 @@ export default function ProductsCardCarouselUI({
         </h2>
         <NavLink
           to={"/catalog"}
-          className="flex items-center gap-3.5 [font-family:var(--font-family)] text-[var(--text-owner-color)] text-base font-medium"
+          className="flex items-center gap-3.5 [font-family:var(--font-family)] text-[var(--text-owner-color)] text-base font-medium pe-4"
         >
           К новинкам <ArrowSvg fill="var(--text-owner-color)" />
         </NavLink>

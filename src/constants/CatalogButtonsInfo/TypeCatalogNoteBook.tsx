@@ -1,32 +1,32 @@
 import { ICatalogButton } from "@/types/types";
 
 const TypeCatalogNoteBook: ICatalogButton = {
-  title: "Планшеты",
+  title: "Ноутбуки",
   links: [
     {
       title: "Apple",
       svg: false,
-      link: "apple",
+      link: "notebook/apple",
     },
     {
       title: "MSI",
       svg: false,
-      link: "msi",
+      link: "notebook/msi",
     },
     {
       title: "Lenovo",
       svg: false,
-      link: "lenovo",
+      link: "notebook/lenovo",
     },
     {
       title: "Acer",
       svg: false,
-      link: "Acer",
+      link: "notebook/Acer",
     },
     {
       title: "Razer",
       svg: false,
-      link: "Razer",
+      link: "notebook/Razer",
     },
   ],
 };

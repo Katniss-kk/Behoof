@@ -39,7 +39,7 @@ export interface CategoryCarouselUIProps {
   Products: ICategory[];
 }
 
-export interface IProductsCardCarousel {
+export interface IProduct {
   type: string;
   title: string;
   img: string;
@@ -50,13 +50,19 @@ export interface IProductsCardCarousel {
     camera: number;
     answer: number;
     portability: number;
+    ram: number;
+    gbInbuilt: number;
+    memoryCard: boolean;
+    mAhBattery: number;
+    FastCharging: boolean;
+    OC: string;
   };
   price: string;
 }
 
 export interface ProductsCardCarouselUIProps {
   CarouselProops: ICardCarousel;
-  Products: IProductsCardCarousel[];
+  Products: IProduct[];
 }
 
 export interface BlockInfoItem {
@@ -94,7 +100,7 @@ export interface ModalProps {
   children: ReactNode;
 }
 
-interface CatalogLinks {
+export interface CatalogLink {
   title: string;
   link: string;
   svg: boolean;
@@ -102,10 +108,11 @@ interface CatalogLinks {
 
 export interface ICatalogButton {
   title: string;
-  links: CatalogLinks[];
+  links: CatalogLink[];
 }
 
 export interface CatalogButtonProps {
   onBack?: () => void;
-  proops: ICatalogButton;
+  buttons: ICatalogButton;
+  onButtonClick: (category: string) => void;
 }

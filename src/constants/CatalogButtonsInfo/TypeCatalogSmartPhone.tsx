@@ -6,32 +6,32 @@ const TypeCatalogSmartPhone: ICatalogButton = {
     {
       title: "Apple",
       svg: false,
-      link: "apple",
+      link: "smartphone/apple",
     },
     {
       title: "Google",
       svg: false,
-      link: "google",
+      link: "smartphone/google",
     },
     {
       title: "Lenovo",
       svg: false,
-      link: "lenovo",
+      link: "smartphone/lenovo",
     },
     {
       title: "Xiaomi",
       svg: false,
-      link: "clocks",
+      link: "smartphone/clocks",
     },
     {
       title: "REDMI",
       svg: false,
-      link: "gameconsoles",
+      link: "smartphone/gameconsoles",
     },
     {
       title: "Samsung",
       svg: false,
-      link: "samsung",
+      link: "smartphone/samsung",
     },
   ],
 };

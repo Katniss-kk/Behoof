@@ -8,17 +8,19 @@ import ProductsCharacteristicsCarousel from "@/components/ProductsCharacteristic
 
 export default function HomePage() {
   return (
-    <div className="bg-white-100 w-full mt-2 mb-8">
+    <div className="bg-white-100 w-full mt-2 mb-14">
       <div className="px-4">
         <AdBanner />
       </div>
-      <div className="bg-[var(--bg-category-color)] px-4">
+      <div className="bg-[var(--bg-category-color)] ps-4">
         <Catalog />
         <ProductsCharacteristicsCarousel />
       </div>
       <div className="px-4">
         <BlockInfo />
         <BannerDownloadApp />
+      </div>
+      <div className="ps-4">
         <ProductsCardCarousel />
         <ArticlesCarousel />
       </div>

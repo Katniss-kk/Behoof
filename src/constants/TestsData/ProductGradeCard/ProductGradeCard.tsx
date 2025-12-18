@@ -1,9 +1,9 @@
 import phoneImg from "@/assets/phone.png";
 // import notebookImg from "@/assets/notebook.png";
 import laptopImg from "@/assets/laptop.png";
-import { IProductsCardCarousel } from "@/types/types";
+import { IProduct } from "@/types/types";
 
-const ProductGradeCard: IProductsCardCarousel[] = [
+const ProductGradeCard: IProduct[] = [
   {
     type: "Телефон",
     title: "Apple iPhone 13 Pro Max 256 ГБ серый",
@@ -15,6 +15,12 @@ const ProductGradeCard: IProductsCardCarousel[] = [
       camera: 5,
       answer: 5,
       portability: 4,
+      ram: 4,
+      gbInbuilt: 128,
+      memoryCard: false,
+      mAhBattery: 3240,
+      FastCharging: true,
+      OC: "IOS v15",
     },
     price: "114 099",
   },
@@ -29,6 +35,12 @@ const ProductGradeCard: IProductsCardCarousel[] = [
       camera: 4,
       answer: 2,
       portability: 3,
+      ram: 4,
+      gbInbuilt: 256,
+      memoryCard: false,
+      mAhBattery: 3240,
+      FastCharging: true,
+      OC: "IOS v15",
     },
     price: "120 099",
   },
@@ -43,6 +55,12 @@ const ProductGradeCard: IProductsCardCarousel[] = [
       camera: 1,
       answer: 2,
       portability: 3,
+      ram: 4,
+      gbInbuilt: 512,
+      memoryCard: false,
+      mAhBattery: 3240,
+      FastCharging: true,
+      OC: "IOS v15",
     },
     price: "105 099",
   },
@@ -57,6 +75,12 @@ const ProductGradeCard: IProductsCardCarousel[] = [
       camera: 5,
       answer: 5,
       portability: 3,
+      ram: 8,
+      gbInbuilt: 512,
+      memoryCard: false,
+      mAhBattery: 2840,
+      FastCharging: false,
+      OC: "IOS v16",
     },
     price: "90 199",
   },

@@ -1,32 +1,32 @@
 import { ICatalogButton } from "@/types/types";
 
 const TypeCatalogTablets: ICatalogButton = {
-  title: "Ноутбуки",
+  title: "Планшеты",
   links: [
     {
       title: "Apple",
       svg: false,
-      link: "apple",
+      link: "teblet/apple",
     },
     {
       title: "Google",
       svg: false,
-      link: "goole",
+      link: "teblet/goole",
     },
     {
       title: "Lenovo",
       svg: false,
-      link: "lenovo",
+      link: "teblet/lenovo",
     },
     {
       title: "Xiaomi",
       svg: false,
-      link: "xiaomi",
+      link: "teblet/xiaomi",
     },
     {
       title: "Redmi",
       svg: false,
-      link: "redmi",
+      link: "teblet/redmi",
     },
   ],
 };

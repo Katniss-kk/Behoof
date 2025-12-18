@@ -1,5 +1,5 @@
 import CardCarousel from "@/components/CardCarousel";
-import ArrowSvg from "@/constants/ArrowSVG";
+import ArrowSvg from "@/assets/SVG/ArrowSVG";
 import { ArticlesCardCarouselUIProps, ICardCarousel } from "@/types/types";
 import { NavLink } from "react-router-dom";
 
@@ -10,7 +10,7 @@ export default function ArticlesCarouselUI({
   const card = (
     <>
       {Articles.map((Article) => (
-        <div className="swiper-slide mb-[100px]" key={Article.title}>
+        <div className="swiper-slide" key={Article.title}>
           <img
             src={Article.img}
             alt={Article.title}
@@ -48,7 +48,7 @@ export default function ArticlesCarouselUI({
         </h2>
         <NavLink
           to={"/articles"}
-          className="flex items-center gap-3.5 [font-family:var(--font-family)] text-[var(--text-owner-color)] text-base font-medium"
+          className="flex items-center gap-3.5 [font-family:var(--font-family)] text-[var(--text-owner-color)] text-base font-medium pe-4"
         >
           К статьям <ArrowSvg fill="var(--text-owner-color)" />
         </NavLink>

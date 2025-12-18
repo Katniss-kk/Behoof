@@ -1,10 +1,6 @@
-import { IProductsCardCarousel } from "@/types/types";
+import { IProduct } from "@/types/types";
 
-export default function RatingBarUI({
-  product,
-}: {
-  product: IProductsCardCarousel;
-}) {
+export default function RatingBarUI({ product }: { product: IProduct }) {
   const Rating = [
     { label: "Дизайн", value: product.characteristics.design },
     { label: "Батарея", value: product.characteristics.battery },

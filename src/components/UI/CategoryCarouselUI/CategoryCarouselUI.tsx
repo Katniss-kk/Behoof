@@ -34,7 +34,7 @@ export default function CategoryCarouselUI({
   };
 
   return (
-    <div className="mt-3 p-4 rounded-lg">
+    <div className="mt-3 rounded-lg">
       <h2 className="[font-family:var(--font-family)] text-[var(--text-color-title)] text-base mb-4 font-semibold">
         Категории
       </h2>

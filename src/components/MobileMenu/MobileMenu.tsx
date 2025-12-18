@@ -3,7 +3,7 @@ import { MobileMenuUI } from "../UI";
 
 export default function MobileMenu() {
   const location = useLocation();
-  if (location.pathname === "/catalog") {
+  if (location.pathname === "/catalogmenu") {
     return null;
   }
 
