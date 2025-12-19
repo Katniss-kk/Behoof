@@ -4,29 +4,34 @@ const TypeCatalogTablets: ICatalogButton = {
   title: "Планшеты",
   links: [
     {
+      title: "Все планшеты",
+      svg: false,
+      link: "tablet",
+    },
+    {
       title: "Apple",
       svg: false,
-      link: "teblet/apple",
+      link: "tablet/apple",
     },
     {
       title: "Google",
       svg: false,
-      link: "teblet/goole",
+      link: "tablet/goole",
     },
     {
       title: "Lenovo",
       svg: false,
-      link: "teblet/lenovo",
+      link: "tablet/lenovo",
     },
     {
       title: "Xiaomi",
       svg: false,
-      link: "teblet/xiaomi",
+      link: "tablet/xiaomi",
     },
     {
       title: "Redmi",
       svg: false,
-      link: "teblet/redmi",
+      link: "tablet/redmi",
     },
   ],
 };

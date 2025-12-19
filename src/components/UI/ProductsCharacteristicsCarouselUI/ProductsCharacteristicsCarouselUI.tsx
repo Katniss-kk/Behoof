@@ -11,7 +11,7 @@ export default function ProductsCharacteristicsCarouselUI({
   const card = (
     <>
       {Products.map((product) => (
-        <div key={product.title} className="swiper-slide rounded-[5px] pb-7">
+        <div key={product.id} className="swiper-slide rounded-[5px] pb-7">
           <div className="grid grid-flow-row bg-[var(--bg-carousel-color)] px-2 py-3 gap-y-3 min-h-72">
             <div className="grid grid-flow-col items-center">
               <div>

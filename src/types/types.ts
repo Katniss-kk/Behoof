@@ -40,8 +40,10 @@ export interface CategoryCarouselUIProps {
 }
 
 export interface IProduct {
+  id: number;
   type: string;
   title: string;
+  brand: string;
   img: string;
   characteristics: {
     design: number;
@@ -115,4 +117,9 @@ export interface CatalogButtonProps {
   onBack?: () => void;
   buttons: ICatalogButton;
   onButtonClick: (category: string) => void;
+}
+
+export interface IFilters {
+  totalCounts: number[];
+  totalBrands: string[];
 }

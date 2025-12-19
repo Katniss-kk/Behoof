@@ -1,10 +1,13 @@
 import { AdBanner } from "@/components/AdBanner";
-import ArticlesCarousel from "@/components/ArticlesCarousel";
 import BannerDownloadApp from "@/components/BannerDownloadApp/BannerDownloadApp";
 import BlockInfo from "@/components/BlockInfo";
 import { Catalog } from "@/components/CategoryCarousel";
-import ProductsCardCarousel from "@/components/ProductsCardCarousel";
+import { lazy } from "react";
 import ProductsCharacteristicsCarousel from "@/components/ProductsCharacteristicsCarousel";
+const ProductsCardCarousel = lazy(
+  () => import("@/components/ProductsCardCarousel")
+);
+const ArticlesCarousel = lazy(() => import("@/components/ArticlesCarousel"));
 
 export default function HomePage() {
   return (

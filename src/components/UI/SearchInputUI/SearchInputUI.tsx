@@ -22,7 +22,7 @@ const SearchSvg = () => {
 
 export default function SearchInputUI() {
   return (
-    <div className="flex gap-x-[12px] items-center py-[15px] px-[21px] bg-[var(--bg-input-color)] rounded-2xl mb-2">
+    <div className="flex gap-x-[12px] items-center py-[15px] px-[21px] bg-[var(--bg-input-color)] rounded-2xl">
       <SearchSvg />
       <input type="text" name="" id="" placeholder="Поиск товаров" />
     </div>

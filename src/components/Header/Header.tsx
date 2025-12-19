@@ -1,8 +1,13 @@
 import { Logo } from "@components/Logo";
 import { SearchInput } from "../SearchInput";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import ButtonBack from "@components/Buttons/ButtonBack";
 
 export default function Header() {
+  const location = useLocation();
+
+  const showButtonBack = location.pathname !== "/";
+
   return (
     <div className="px-4 h-min pt-[12px]">
       <div className="flex items-center gap-x-2.5 h-min mb-2">
@@ -14,7 +19,10 @@ export default function Header() {
           <br />в интернет-магазинах
         </h4>
       </div>
-      <SearchInput />
+      <div className="grid grid-flow-col gap-2 mb-2">
+        {showButtonBack && <ButtonBack />}
+        <SearchInput />
+      </div>
       <hr />
     </div>
   );

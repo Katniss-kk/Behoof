@@ -24,6 +24,9 @@
   --bg-card-color: #f6f7fa;
   --bg-button-color: #f5f7fa;
   --color-reviews: #30d170;
+  --bg-filter-button: #FFFFFF;
+  --border-filter-button: #DFE4EA;
+  --bg-modal: #FDFDFD;
 }
 
 /* [font-family:var(--font-family)] text-[var(--text-title-color)] text-2xl font-medium text-center */

@@ -4,6 +4,11 @@ const TypeCatalogNoteBook: ICatalogButton = {
   title: "Ноутбуки",
   links: [
     {
+      title: "Все ноутбуки",
+      svg: false,
+      link: "notebook",
+    },
+    {
       title: "Apple",
       svg: false,
       link: "notebook/apple",

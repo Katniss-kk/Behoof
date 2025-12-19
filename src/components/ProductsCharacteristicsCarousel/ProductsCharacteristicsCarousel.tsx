@@ -1,8 +1,10 @@
 import { ICardCarousel } from "@/types/types";
 import ProductsCardCarouselUI from "../UI/ProductsCharacteristicsCarouselUI";
-import ProductGradeCard from "@/constants/TestsData/ProductGradeCard/ProductGradeCard";
+import { useSelector } from "@/services/store";
 
 export default function ProductsCharacteristicsCarousel() {
+  const Products = useSelector(state => state.Products.products)
+
       const CarouselProops: ICardCarousel = {
         children: <></>,
         slidesPerGroup: 1,
@@ -17,5 +19,5 @@ export default function ProductsCharacteristicsCarousel() {
         }
       }
 
-  return <ProductsCardCarouselUI CarouselProops={CarouselProops} Products={ProductGradeCard}/>;
+  return <ProductsCardCarouselUI CarouselProops={CarouselProops} Products={Products}/>;
 }

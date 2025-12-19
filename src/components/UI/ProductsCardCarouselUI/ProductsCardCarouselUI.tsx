@@ -11,7 +11,7 @@ export default function ProductsCardCarouselUI({
   const card = (
     <>
       {Products.map((Product) => (
-        <div key={Product.title} className="swiper-slide">
+        <div key={Product.id} className="swiper-slide">
           <div className="grid justify-items-start bg-[var(--bg-card-color)] border border-[var(--border-color-button)] rounded-xl p-3">
             <img
               src={Product.img}
