@@ -27,6 +27,8 @@
   --bg-filter-button: #FFFFFF;
   --border-filter-button: #DFE4EA;
   --bg-modal: #FDFDFD;
+  --input-range: #FF4D4D;
+  --input-range-rail: #DFE4EA;
 }
 
 /* [font-family:var(--font-family)] text-[var(--text-title-color)] text-2xl font-medium text-center */

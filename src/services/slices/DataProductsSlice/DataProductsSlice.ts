@@ -5,16 +5,16 @@ import { PayloadAction } from "@reduxjs/toolkit";
 
 interface IProductState {
   products: IProduct[];
-  categoryProducts: IProduct[];
-  brandsProducts: IProduct[];
+  categoryAndBrandsProducts: IProduct[];
+  filteredProducts: IProduct[];
   loading: boolean;
   error: string | null;
 }
 
 const initialState: IProductState = {
   products: [],
-  categoryProducts: [],
-  brandsProducts: [],
+  categoryAndBrandsProducts: [],
+  filteredProducts: [],
   loading: false,
   error: null,
 };
@@ -29,16 +29,18 @@ const DataProductsSlice = createSlice({
       state.products = ProductsFakeData;
     },
     setCategory: (state, action: PayloadAction<string>) => {
-      state.categoryProducts = state.products.filter(
+      state.categoryAndBrandsProducts = state.products.filter(
         (product) => product.type.toLowerCase() === action.payload.toLowerCase()
       );
+      state.filteredProducts = state.categoryAndBrandsProducts;
     },
 
     setBrands: (state, action: PayloadAction<string>) => {
-      state.brandsProducts = state.products.filter(
+      state.categoryAndBrandsProducts = state.products.filter(
         (product) =>
           product.brand.toLowerCase() === action.payload.toLowerCase()
       );
+      state.filteredProducts = state.categoryAndBrandsProducts;
     },
 
     setCategoryAndBrand: (
@@ -46,13 +48,20 @@ const DataProductsSlice = createSlice({
       action: PayloadAction<{ category: string; brand: string }>
     ) => {
       const { category, brand } = action.payload;
-      state.brandsProducts = state.products.filter(
+      state.categoryAndBrandsProducts = state.products.filter(
         (product) =>
           product.type.toLowerCase() === category.toLowerCase() &&
           product.brand.toLowerCase() === brand.toLowerCase()
       );
+      state.filteredProducts = state.categoryAndBrandsProducts;
     },
-    // filterPrice: (state, action) => {},
+    filterPrice: (state, action: PayloadAction<[number, number]>) => {
+      const [min, max] = action.payload;
+      state.filteredProducts = state.categoryAndBrandsProducts.filter(
+        (product) =>
+          Number(product.price) >= min && Number(product.price) <= max
+      );
+    },
   },
 });
 
@@ -61,6 +70,6 @@ export const {
   setCategory,
   setCategoryAndBrand,
   setBrands,
-  // filterPrice,
+  filterPrice,
 } = DataProductsSlice.actions;
 export const DataProductsReducer = DataProductsSlice.reducer;

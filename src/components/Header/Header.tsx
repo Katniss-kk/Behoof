@@ -6,7 +6,8 @@ import ButtonBack from "@components/Buttons/ButtonBack";
 export default function Header() {
   const location = useLocation();
 
-  const showButtonBack = location.pathname !== "/";
+  const showButtonBack =
+    location.pathname !== "/" && location.pathname !== "/catalogmenu";
 
   return (
     <div className="px-4 h-min pt-[12px]">
@@ -19,7 +20,7 @@ export default function Header() {
           <br />в интернет-магазинах
         </h4>
       </div>
-      <div className="grid grid-flow-col gap-2 mb-2">
+      <div className="grid grid-cols-[max-content] grid-flow-col gap-2 mb-2">
         {showButtonBack && <ButtonBack />}
         <SearchInput />
       </div>

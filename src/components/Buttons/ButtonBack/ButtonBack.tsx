@@ -11,7 +11,7 @@ export default function ButtonBack() {
   return (
     <button
       onClick={handleClickBack}
-      className="bg-[var(--bg-input-color)] rounded-lg px-5 h-full rotate-90"
+      className="bg-[var(--bg-input-color)] rounded-lg px-5 max-w-14 max-h-14 rotate-90"
     >
       <ArrowButtonSVG />
     </button>

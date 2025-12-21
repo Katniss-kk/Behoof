@@ -123,3 +123,24 @@ export interface IFilters {
   totalCounts: number[];
   totalBrands: string[];
 }
+
+export interface IFiltersUI {
+  totalBrands: string[];
+  minPrice: number;
+  maxPrice: number;
+}
+
+export interface PriceRangeInputProps {
+  minPrice: number;
+  maxPrice: number;
+}
+
+export interface PriceRangeUIProps {
+  priceText: [number, number];
+  setPriceText: React.Dispatch<React.SetStateAction<[number, number]>>;
+  handleTextInputChange: () => void;
+  minPrice: number;
+  maxPrice: number;
+  range: [number, number];
+  handleSliderChange: (value: number | number[]) => void;
+}

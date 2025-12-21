@@ -1,5 +1,4 @@
 import CardCatalog from "@/components/CardCatalog";
-import { IProduct } from "@/types/types";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "@/services/store";
@@ -21,61 +20,60 @@ export default function CatalogProductsPage() {
   }>();
 
   const dispatch = useDispatch();
+
   useEffect(() => {
-    if (category && brand) {
+    if (brand !== undefined && category !== undefined) {
       dispatch(setCategoryAndBrand({ category, brand }));
-    }
-    if (category && brand === undefined) {
+    } else if (category !== undefined && brand === undefined) {
       dispatch(setCategory(category));
     }
   }, [category, brand, dispatch]);
 
-  const brands: IProduct[] = useSelector(
-    (state) => state.Products.brandsProducts || []
-  );
+  const products = useSelector((state) => state.Products.filteredProducts);
 
-  const categoryProducts: IProduct[] = useSelector(
-    (state) => state.Products.categoryProducts || []
-  );
-
-  if (brand !== undefined) {
+  if (brand !== undefined && category !== undefined) {
     return (
       <div className="grid gap-5 px-4 pt-5">
         <h1 className="[font-family:var(--font-family)] text-[var(--text-color-title)] text-xl font-bold">
           {brand.toLocaleUpperCase()}
         </h1>
-        <CardCatalog cards={brands} />
+        <CardCatalog cards={products} />
       </div>
     );
   }
 
-  const hasProducts = categoryProducts.length > 0;
-  const firstProductBrand = hasProducts ? categoryProducts[0]?.type : "";
+  if (category !== undefined && brand === undefined) {
+    const totalCounts = products.map((product) =>
+      Number(product.price.split(" ").join(""))
+    );
 
-  const handleClickFilter = () => {
-    setModalOpen(!modalOpen);
-  };
+    const totalBrands = [
+      ...new Set(products.map((category) => category.brand)),
+    ];
 
-  const totlaCounts = categoryProducts.map((category) =>
-    Number(category.price.split(" ").join(""))
-  );
+    const handleClickFilter = () => {
+      setModalOpen(!modalOpen);
+    };
 
-  const totalBrands = [
-    ...new Set(categoryProducts.map((category) => category.brand)),
-  ];
+    const firstProduct =
+      products && products.length > 0 ? products[0].type : "";
 
-  return (
-    <div className="grid gap-5 px-4 pt-5">
-      <h1 className="[font-family:var(--font-family)] text-[var(--text-color-title)] text-xl font-bold">
-        {firstProductBrand.toLocaleUpperCase()}
-      </h1>
-      <div>
-        <ButtonFilter onClick={handleClickFilter} />
+    return (
+      <div className="grid gap-5 px-4 pt-5">
+        <h1 className="[font-family:var(--font-family)] text-[var(--text-color-title)] text-xl font-bold">
+          {firstProduct.toLocaleUpperCase()}
+        </h1>
+        <div>
+          <ButtonFilter onClick={handleClickFilter} />
+        </div>
+        <CardCatalog cards={products} />
+        <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+          <Filters totalCounts={totalCounts} totalBrands={totalBrands} />
+        </Modal>
       </div>
-      <CardCatalog cards={categoryProducts} />
-      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-        <Filters totalCounts={totlaCounts} totalBrands={totalBrands}/>
-      </Modal>
-    </div>
-  );
+    );
+  }
+  if (category === undefined && brand === undefined) {
+    return null;
+  }
 }

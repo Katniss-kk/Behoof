@@ -1,11 +1,30 @@
-import { useRef, TouchEvent } from 'react';
+import { useRef, TouchEvent, useEffect } from "react";
 import { ModalProps } from "@/types/types";
 
 export default function Modal({ isOpen, onClose, children }: ModalProps) {
   const startYRef = useRef(0);
   const modalContentRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (isOpen) {
+      const scrollY = window.scrollY;
+
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
+
+      return () => {
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+        document.body.style.overflow = "";
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isOpen]);
 
   if (!isOpen) return null;
+
 
   const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
     startYRef.current = e.touches[0].clientY;
@@ -13,9 +32,9 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
 
   const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
     if (!modalContentRef.current) return;
-    
+
     const deltaY = e.touches[0].clientY - startYRef.current;
-    
+
     if (deltaY > 0) {
       modalContentRef.current.style.transform = `translateY(${deltaY}px)`;
     }
@@ -23,20 +42,19 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
 
   const handleTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
     if (!modalContentRef.current) return;
-    
+
     const deltaY = e.changedTouches[0].clientY - startYRef.current;
-    modalContentRef.current.style.transform = '';
-    
+    modalContentRef.current.style.transform = "";
+
     if (deltaY > 100) {
       onClose();
     }
   };
 
   return (
-    <div 
+    <div
       className="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/50"
       onClick={(e) => e.target === e.currentTarget && onClose()}
-      style={{ bottom: '56px' }}
     >
       <div
         ref={modalContentRef}
@@ -49,7 +67,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
         <div className="flex justify-center py-3 md:hidden">
           <div className="w-12 h-1.5 bg-gray-300 rounded-full" />
         </div>
-        
+
         <button
           onClick={onClose}
           className="absolute top-3 right-3 md:top-4 md:right-4 text-gray-400 hover:text-gray-600 text-2xl"
@@ -57,7 +75,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
         >
           &times;
         </button>
-        
+
         <div className="max-h-[calc(100vh-180px)] overflow-y-auto p-4">
           {children}
         </div>
