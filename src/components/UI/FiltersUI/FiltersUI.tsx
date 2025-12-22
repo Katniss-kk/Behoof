@@ -6,6 +6,8 @@ export default function FiltersUI({
   totalBrands,
   minPrice,
   maxPrice,
+  activeBrand,
+  setActiveBrand,
 }: IFiltersUI) {
   return (
     <div className="">
@@ -18,7 +20,11 @@ export default function FiltersUI({
             Бренды
           </h3>
           <div className="flex flex-wrap gap-2">
-            <ButtonFilterBrands totalBrands={totalBrands} />
+            <ButtonFilterBrands
+              totalBrands={totalBrands}
+              activeBrand={activeBrand}
+              setActiveBrand={setActiveBrand}
+            />
           </div>
         </div>
         <div>

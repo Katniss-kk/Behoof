@@ -1,11 +1,13 @@
 import CardCatalog from "@/components/CardCatalog";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "@/services/store";
 import { useDispatch } from "react-redux";
 import {
-  setCategory,
+  filterProducts,
+  setActiveRangeState,
   setCategoryAndBrand,
+  setActiveBrandState, // Добавляем импорт для установки активного бренда
 } from "@/services/slices/DataProductsSlice/DataProductsSlice";
 import ButtonFilter from "@/components/Buttons/ButtonFilter";
 import Modal from "@/components/Modal";
@@ -20,60 +22,83 @@ export default function CatalogProductsPage() {
   }>();
 
   const dispatch = useDispatch();
+  const products = useSelector((state) => state.Products.filteredProducts);
+  const categoryProducts = useSelector(
+    (state) => state.Products.categoryAndBrandsProducts
+  );
+  const activeBrand = useSelector((state) => state.Products.activeBrand);
 
   useEffect(() => {
-    if (brand !== undefined && category !== undefined) {
+    dispatch(filterProducts());
+  }, [modalOpen, activeBrand, dispatch]);
+
+  useEffect(() => {
+    if (category) {
       dispatch(setCategoryAndBrand({ category, brand }));
-    } else if (category !== undefined && brand === undefined) {
-      dispatch(setCategory(category));
     }
   }, [category, brand, dispatch]);
 
-  const products = useSelector((state) => state.Products.filteredProducts);
+  const { minPrice, maxPrice, totalBrands } = useMemo(() => {
+    if (!categoryProducts.length) {
+      return { minPrice: 0, maxPrice: 0, totalBrands: [] };
+    }
 
-  if (brand !== undefined && category !== undefined) {
+    const prices = categoryProducts
+      .map((p) => Number(p.price.replace(/\s/g, "")))
+      .filter((p) => !isNaN(p));
+
+    return {
+      minPrice: Math.min(...prices),
+      maxPrice: Math.max(...prices),
+      totalBrands: [...new Set(categoryProducts.map((p) => p.brand))],
+    };
+  }, [categoryProducts]);
+
+  useEffect(() => {
+    dispatch(setActiveRangeState([minPrice, maxPrice]));
+  }, [minPrice, maxPrice]);
+
+  const handleClickFilter = () => setModalOpen(!modalOpen);
+
+  const handleSetActiveBrand = (brand: string | null) => {
+    dispatch(setActiveBrandState(brand)); // Устанавливаем бренд в Redux
+  };
+
+  if (brand) {
     return (
       <div className="grid gap-5 px-4 pt-5">
         <h1 className="[font-family:var(--font-family)] text-[var(--text-color-title)] text-xl font-bold">
-          {brand.toLocaleUpperCase()}
+          {brand.toUpperCase()}
         </h1>
         <CardCatalog cards={products} />
       </div>
     );
   }
 
-  if (category !== undefined && brand === undefined) {
-    const totalCounts = products.map((product) =>
-      Number(product.price.split(" ").join(""))
-    );
-
-    const totalBrands = [
-      ...new Set(products.map((category) => category.brand)),
-    ];
-
-    const handleClickFilter = () => {
-      setModalOpen(!modalOpen);
-    };
-
-    const firstProduct =
-      products && products.length > 0 ? products[0].type : "";
+  if (category) {
+    const title = products[0]?.type || category;
 
     return (
       <div className="grid gap-5 px-4 pt-5">
         <h1 className="[font-family:var(--font-family)] text-[var(--text-color-title)] text-xl font-bold">
-          {firstProduct.toLocaleUpperCase()}
+          {title.toUpperCase()}
         </h1>
         <div>
           <ButtonFilter onClick={handleClickFilter} />
         </div>
         <CardCatalog cards={products} />
         <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-          <Filters totalCounts={totalCounts} totalBrands={totalBrands} />
+          <Filters
+            minPrice={minPrice}
+            maxPrice={maxPrice}
+            totalBrands={totalBrands}
+            activeBrand={activeBrand}
+            setActiveBrand={handleSetActiveBrand}
+          />
         </Modal>
       </div>
     );
   }
-  if (category === undefined && brand === undefined) {
-    return null;
-  }
+
+  return null;
 }

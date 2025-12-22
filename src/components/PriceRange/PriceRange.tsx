@@ -1,64 +1,58 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PriceRangeUI from "@components/UI/PriceRangeUI";
 import { PriceRangeInputProps } from "@/types/types";
-import { useDispatch } from "@/services/store";
-import { filterPrice } from "@/services/slices/DataProductsSlice/DataProductsSlice";
+import { useDispatch, useSelector } from "@/services/store";
+import { setActiveRangeState } from "@/services/slices/DataProductsSlice/DataProductsSlice";
 
 export default function PriceRange({
   minPrice,
   maxPrice,
 }: PriceRangeInputProps) {
   const dispatch = useDispatch();
-  const [range, setRange] = useState<[number, number]>([minPrice, maxPrice]);
+  const range = useSelector((state) => state.Products.range);
+  const [priceText, setPriceText] = useState<[number, number]>(range);
 
-  const [priceText, setPriceText] = useState<[number, number]>([
-    minPrice,
-    maxPrice,
-  ]);
-
-  const Filter = ([min, max]: number[]) => {
-    dispatch(filterPrice([min, max]));
-  };
+  useEffect(() => {
+    dispatch(setActiveRangeState(range));
+  }, [range, dispatch]);
 
   const handleSliderChange = (value: number | number[]) => {
     if (Array.isArray(value)) {
       const newRange = value as [number, number];
-      setRange(newRange);
+      dispatch(setActiveRangeState(newRange));
       setPriceText(newRange);
-      Filter(range)
     }
   };
 
   const handleTextInputChange = () => {
     if (priceText[0] < minPrice) {
       const newRange: [number, number] = [minPrice, priceText[1]];
-      setRange(newRange);
+      dispatch(setActiveRangeState(newRange));
       setPriceText(newRange);
       return;
     }
     if (priceText[0] > maxPrice) {
       const newRange: [number, number] = [maxPrice, priceText[1]];
-      setRange(newRange);
+      dispatch(setActiveRangeState(newRange));
       setPriceText(newRange);
       return;
     }
 
     if (priceText[1] > maxPrice) {
       const newRange: [number, number] = [priceText[0], maxPrice];
-      setRange(newRange);
+      dispatch(setActiveRangeState(newRange));
       setPriceText(newRange);
       return;
     }
     if (priceText[1] < minPrice) {
       const newRange: [number, number] = [priceText[0], minPrice];
-      setRange(newRange);
+      dispatch(setActiveRangeState(newRange));
       setPriceText(newRange);
       return;
     }
 
-    setRange(priceText);
+    dispatch(setActiveRangeState(priceText));
   };
-
 
   return (
     <PriceRangeUI
@@ -66,9 +60,9 @@ export default function PriceRange({
       maxPrice={maxPrice}
       handleSliderChange={handleSliderChange}
       handleTextInputChange={handleTextInputChange}
-      range={range}
       setPriceText={setPriceText}
       priceText={priceText}
+      range={range}
     />
   );
 }

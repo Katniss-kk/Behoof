@@ -120,19 +120,25 @@ export interface CatalogButtonProps {
 }
 
 export interface IFilters {
-  totalCounts: number[];
   totalBrands: string[];
+  minPrice: number;
+  maxPrice: number;
+  activeBrand: string | null;
+  setActiveBrand: (brand: string | null) => void;
 }
 
 export interface IFiltersUI {
   totalBrands: string[];
   minPrice: number;
   maxPrice: number;
+  activeBrand: string | null;
+  setActiveBrand: (brand: string | null) => void;
 }
 
 export interface PriceRangeInputProps {
   minPrice: number;
   maxPrice: number;
+
 }
 
 export interface PriceRangeUIProps {
@@ -143,4 +149,10 @@ export interface PriceRangeUIProps {
   maxPrice: number;
   range: [number, number];
   handleSliderChange: (value: number | number[]) => void;
+}
+
+export interface IButtonFilterBrand {
+  totalBrands: string[];
+  activeBrand: string | null;
+  setActiveBrand: (brand: string | null) => void;
 }

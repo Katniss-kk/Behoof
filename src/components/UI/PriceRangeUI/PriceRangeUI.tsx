@@ -29,7 +29,7 @@ export default function PriceRangeUI({
         <div className="flex-1">
           <label className="block text-sm font-medium mb-1">До</label>
           <input
-            type="number"
+            type="text"
             value={priceText[1]}
             onChange={(e) =>
               setPriceText([priceText[0], Number(e.target.value)])
