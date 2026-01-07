@@ -3,6 +3,7 @@ import { ICardCarousel, ProductsCardCarouselUIProps } from "@/types/types";
 
 import RatingBar from "@/components/RatingBar";
 import CardsButtons from "@/components/Buttons/CardsButtons/CardsButtons";
+import { NavLink } from "react-router-dom";
 
 export default function ProductsCharacteristicsCarouselUI({
   CarouselProops,
@@ -26,15 +27,15 @@ export default function ProductsCharacteristicsCarouselUI({
             </div>
             <div className="grid grid-flow-col gap-x-3">
               <div className="py-2.5 self-center">
-                <img
-                  src={product.img}
-                  alt={product.title}
-                  className="w-19 h-18"
-                />
+                <NavLink to={`catalog/${product.type.toLocaleLowerCase()}/product/${product.id}`}>
+                  <img
+                    src={product.img}
+                    alt={product.title}
+                    className="w-19 h-18"
+                  />
+                </NavLink>
               </div>
-              <div className="grid grid-flow-row gap-3">
-                <RatingBar product={product} />
-              </div>
+              <RatingBar product={product} />
             </div>
           </div>
         </div>

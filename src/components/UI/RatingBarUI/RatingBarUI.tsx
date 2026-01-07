@@ -14,7 +14,7 @@ export default function RatingBarUI({ product }: { product: IProduct }) {
   ];
 
   return (
-    <>
+    <div className="grid grid-flow-row gap-3">
       {Rating.map((item, idx) => (
         <div key={idx} className="grid items-center gap-y-1">
           <span className="[font-family:var(--font-family)] text-[var(--text-title-productColor)] text-xs font-normal min-w-[100px]">
@@ -24,7 +24,7 @@ export default function RatingBarUI({ product }: { product: IProduct }) {
             {[...Array(5)].map((_, index) => (
               <div
                 key={index}
-                className={`w-6 h-0.5 rounded ${
+                className={`w-full h-0.5 rounded ${
                   index < item.value
                     ? "bg-[var(--bg-color-raitingActive)]"
                     : "bg-[var(--bg-color-raiting)]"
@@ -34,6 +34,6 @@ export default function RatingBarUI({ product }: { product: IProduct }) {
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 }

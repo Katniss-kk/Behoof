@@ -9,6 +9,7 @@ import CatalogProductsPage from "@components/Pages/CatalogProductsPage";
 import { useDispatch } from "@/services/store";
 import { Suspense, useEffect } from "react";
 import { setData } from "@/services/slices/DataProductsSlice/DataProductsSlice";
+import ProductCardSelectedPage from "../Pages/ProductCardSelectedPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,13 +25,25 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalogmenu" element={<CatalogPage />} />
-          <Route path="/catalog" element={<CatalogProductsPage />} />
-          <Route path="/catalog/:category" element={<CatalogProductsPage />}>
-            <Route
-              path="/catalog/:category/:brand"
-              element={<CatalogProductsPage />}
-            />
+
+          <Route path="/catalog">
+            <Route index element={<CatalogProductsPage />} />
+            <Route path=":category" element={<CatalogProductsPage />} />
+            <Route path=":category/:brand" element={<CatalogProductsPage />} />
           </Route>
+
+          <Route
+            path="/product/:productId"
+            element={<ProductCardSelectedPage />}
+          />
+          <Route
+            path="/catalog/:category/product/:productId"
+            element={<ProductCardSelectedPage />}
+          />
+          <Route
+            path="/catalog/:category/:brand/product/:productId"
+            element={<ProductCardSelectedPage />}
+          />
           {/* <Route path="/favorite" element={<FavoritePage />} />
         <Route path="/comparison" element={<ComparisonPage />} />
         <Route path="/profile" element={<Profile />} /> */}

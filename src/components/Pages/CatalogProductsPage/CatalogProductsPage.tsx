@@ -7,7 +7,7 @@ import {
   filterProducts,
   setActiveRangeState,
   setCategoryAndBrand,
-  setActiveBrandState, // Добавляем импорт для установки активного бренда
+  setActiveBrandState,
 } from "@/services/slices/DataProductsSlice/DataProductsSlice";
 import ButtonFilter from "@/components/Buttons/ButtonFilter";
 import Modal from "@/components/Modal";
@@ -61,7 +61,7 @@ export default function CatalogProductsPage() {
   const handleClickFilter = () => setModalOpen(!modalOpen);
 
   const handleSetActiveBrand = (brand: string | null) => {
-    dispatch(setActiveBrandState(brand)); // Устанавливаем бренд в Redux
+    dispatch(setActiveBrandState(brand));
   };
 
   if (brand) {

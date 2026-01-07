@@ -1,5 +1,3 @@
-import { setActiveBrandState } from "@/services/slices/DataProductsSlice/DataProductsSlice";
-import { useDispatch } from "@/services/store";
 import { IButtonFilterBrand } from "@/types/types";
 
 export default function ButtonFilterBrands({
@@ -7,7 +5,6 @@ export default function ButtonFilterBrands({
   activeBrand,
   setActiveBrand,
 }: IButtonFilterBrand) {
-  
   const handleClickBrand = (brand: string) => {
     if (activeBrand === brand) {
       setActiveBrand(null);

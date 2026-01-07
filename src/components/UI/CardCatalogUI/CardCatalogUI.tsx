@@ -1,24 +1,26 @@
 import { IProduct } from "@/types/types";
 import CardsButtons from "@/components/Buttons/CardsButtons/CardsButtons";
+import { NavLink } from "react-router-dom";
+import RatingProduct from "@/components/RatingProduct";
 
-export default function CardCatalogUI({ cards }: { cards: IProduct[] }) {
+export default function CardCatalogUI({
+  cards,
+  link,
+}: {
+  cards: IProduct[];
+  link: string;
+}) {
   return (
     <div className="grid gap-y-3 mb-15">
       {cards.map((card) => (
-        <div
+        <NavLink
+          to={`${link}/product/${card.id}`}
           key={card.title}
           className="bg-[var(--bg-carousel-color)] p-3 border border-[var(--border-color-button)] rounded-xl"
         >
           <div className="grid gap-y-2">
             <div className="grid gap-y-1">
-              <div className="grid grid-flow-col gap-1">
-                <span className="[font-family:var(--font-family)] text-[var(--color-reviews)] text-xs font-normal px-2 py-1 border border-[var(--border-menu-color)] rounded-xl w-max">
-                  4.4 средняя оцена
-                </span>
-                <span className="[font-family:var(--font-family)] text-[var(--text-title-productColor)] text-xs font-normal px-2 py-1 border border-[var(--border-menu-color)] rounded-xl w-max">
-                  447 отзывов
-                </span>
-              </div>
+              <RatingProduct />
               <h2 className="[font-family:var(--font-family)] text-[var(--text-title-color)] text-sm font-medium">
                 {card.title}
               </h2>
@@ -52,7 +54,7 @@ export default function CardCatalogUI({ cards }: { cards: IProduct[] }) {
               </span>
             </div>
           </div>
-        </div>
+        </NavLink>
       ))}
     </div>
   );

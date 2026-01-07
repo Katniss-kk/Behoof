@@ -8,17 +8,17 @@ const CategoryInfo: ICategory[] = [
   {
     title: "Смартфоны",
     img: phoneImg,
-    link: "/",
+    link: "/smartphone",
   },
   {
     title: "Ноутбуки",
     img: notebookImg,
-    link: "/",
+    link: "/notebook",
   },
   {
     title: "Планшеты",
     img: laptopImg,
-    link: "/",
+    link: "/tablet",
   },
   {
     title: "Наушники",

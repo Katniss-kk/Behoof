@@ -13,11 +13,16 @@ export default function ProductsCardCarouselUI({
       {Products.map((Product) => (
         <div key={Product.id} className="swiper-slide">
           <div className="grid justify-items-start bg-[var(--bg-card-color)] border border-[var(--border-color-button)] rounded-xl p-3">
-            <img
-              src={Product.img}
-              alt={Product.title}
-              className="w-full min-h-32"
-            />
+            <NavLink
+              to={`catalog/${Product.type.toLocaleLowerCase()}/product/${Product.id}`}
+              className='w-full h-full'
+            >
+              <img
+                src={Product.img}
+                alt={Product.title}
+                className="w-full min-h-32"
+              />
+            </NavLink>
             <div>
               <div>
                 <span className="[font-family:var(--font-family)] text-[var(--text-title-productColor)] text-xs font-normal">

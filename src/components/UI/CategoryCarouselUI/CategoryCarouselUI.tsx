@@ -11,7 +11,7 @@ export default function CategoryCarouselUI({
       {Products.map((product) => (
         <div className="swiper-slide rounded-[5px]" key={product.title}>
           <NavLink
-            to={product.link}
+            to={`catalog${product.link}`}
             className="grid justify-center bg-[var(--bg-carousel-color)] p-2"
           >
             <img
