@@ -31,6 +31,7 @@
   --input-range-rail: #DFE4EA;
   --bg-button-filterOpacity: rgba(255, 77, 77, 0.3);
   --bg-color-buttonCard: #FFEEEE;
+  --label-text-color: #4F6786;
 }
 
 /* [font-family:var(--font-family)] text-[var(--text-title-color)] text-2xl font-medium text-center */

@@ -5,11 +5,15 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "@Pages/HomePage";
 import CatalogPage from "@Pages/CatalogPage";
 import { Header } from "@components/Header";
-import CatalogProductsPage from "@components/Pages/CatalogProductsPage";
+import CatalogProductsPage from "@Pages/CatalogProductsPage";
+import ProductCardSelectedPage from "@Pages/ProductCardSelectedPage";
 import { useDispatch } from "@/services/store";
 import { Suspense, useEffect } from "react";
 import { setData } from "@/services/slices/DataProductsSlice/DataProductsSlice";
-import ProductCardSelectedPage from "../Pages/ProductCardSelectedPage";
+import ProtectedRoute from "@/utils/ProtectedRoute";
+import { lazy } from "react";
+const LoginPage = lazy(() => import("@Pages/LoginPage"));
+const ProfilePage = lazy(() => import("@Pages/ProfilePage"));
 
 function App() {
   const dispatch = useDispatch();
@@ -17,6 +21,7 @@ function App() {
   useEffect(() => {
     dispatch(setData());
   }, [dispatch]);
+
 
   return (
     <Router>
@@ -43,6 +48,15 @@ function App() {
           <Route
             path="/catalog/:category/:brand/product/:productId"
             element={<ProductCardSelectedPage />}
+          />
+          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <ProfilePage />
+              </ProtectedRoute>
+            }
           />
           {/* <Route path="/favorite" element={<FavoritePage />} />
         <Route path="/comparison" element={<ComparisonPage />} />

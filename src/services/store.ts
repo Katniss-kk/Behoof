@@ -5,9 +5,11 @@ import {
   useSelector as selectorHook,
 } from "react-redux";
 import { DataProductsReducer } from "./slices/DataProductsSlice/DataProductsSlice";
+import userReducer from "./slices/ProfileUserSlice/ProfileUserSlice";
 
 const rootReducer = {
   Products: DataProductsReducer,
+  User: userReducer,
 };
 
 const store = configureStore({

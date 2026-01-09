@@ -62,6 +62,15 @@ export interface IProduct {
   price: string;
 }
 
+export interface IUser {
+  image?: string | null;
+  name?: string | null;
+  surname?: string | null;
+  email?: string;
+  city?: string | null;
+  password?: string;
+}
+
 export interface ProductsCardCarouselUIProps {
   CarouselProops: ICardCarousel;
   Products: IProduct[];
@@ -138,7 +147,6 @@ export interface IFiltersUI {
 export interface PriceRangeInputProps {
   minPrice: number;
   maxPrice: number;
-
 }
 
 export interface PriceRangeUIProps {
