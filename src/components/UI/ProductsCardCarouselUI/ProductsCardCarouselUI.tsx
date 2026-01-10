@@ -14,8 +14,10 @@ export default function ProductsCardCarouselUI({
         <div key={Product.id} className="swiper-slide">
           <div className="grid justify-items-start bg-[var(--bg-card-color)] border border-[var(--border-color-button)] rounded-xl p-3">
             <NavLink
-              to={`catalog/${Product.type.toLocaleLowerCase()}/product/${Product.id}`}
-              className='w-full h-full'
+              to={`catalog/${Product.type.toLocaleLowerCase()}/product/${
+                Product.id
+              }`}
+              className="w-full h-full"
             >
               <img
                 src={Product.img}
@@ -41,7 +43,7 @@ export default function ProductsCardCarouselUI({
                     {Product.price} ₽
                   </h4>
                 </div>
-                <CardsButtons />
+                <CardsButtons product={Product} />
               </div>
             </div>
           </div>

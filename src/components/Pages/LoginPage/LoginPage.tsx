@@ -1,5 +1,5 @@
 import ButtonLogin from "@/components/Buttons/ButtonLogin";
-import ButtonRegister from "@/components/Buttons/ButtonRegister";
+import ButtonRegisterLink from "@/components/Buttons/ButtonRegisterLink";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -53,7 +53,7 @@ export default function LoginPage() {
           Создайте аккаунт чтобы получать уведомления об изменении цен
           и синхронизировать ваши товары на всех устройствах.
         </p>
-        <ButtonRegister />
+        <ButtonRegisterLink />
       </div>
     </div>
   );

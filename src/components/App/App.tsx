@@ -14,6 +14,8 @@ import ProtectedRoute from "@/utils/ProtectedRoute";
 import { lazy } from "react";
 const LoginPage = lazy(() => import("@Pages/LoginPage"));
 const ProfilePage = lazy(() => import("@Pages/ProfilePage"));
+const RegisterPage = lazy(() => import("@Pages/RegisterPage"));
+const BasketPage = lazy(() => import("@Pages/BasketPage"));
 
 function App() {
   const dispatch = useDispatch();
@@ -21,7 +23,6 @@ function App() {
   useEffect(() => {
     dispatch(setData());
   }, [dispatch]);
-
 
   return (
     <Router>
@@ -58,6 +59,16 @@ function App() {
               </ProtectedRoute>
             }
           />
+
+          <Route
+              path="/profile/basket"
+              element={
+                <ProtectedRoute>
+                  <BasketPage />
+                </ProtectedRoute>
+              }
+            />
+          <Route path="/register" element={<RegisterPage />} />
           {/* <Route path="/favorite" element={<FavoritePage />} />
         <Route path="/comparison" element={<ComparisonPage />} />
         <Route path="/profile" element={<Profile />} /> */}

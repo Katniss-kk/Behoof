@@ -33,7 +33,7 @@ export default function ProductCardSelectedPage() {
             <div className="grid gap-2">
               <h2>{product.price} ₽</h2>
               <div className="grid grid-flow-col gap-2">
-                <ButtonInBasket />
+                <ButtonInBasket product={product}/>
                 <ButtonCompare />
               </div>
             </div>

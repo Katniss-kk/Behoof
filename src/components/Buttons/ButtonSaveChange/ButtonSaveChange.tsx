@@ -24,6 +24,7 @@ export default function ButtonSaveChange({
 
   const handleClickSave = () => {
     dispatch(changeUserInfo(user));
+    window.location.reload();
   };
 
   return (

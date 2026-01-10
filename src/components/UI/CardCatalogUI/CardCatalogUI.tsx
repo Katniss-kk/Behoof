@@ -13,8 +13,7 @@ export default function CardCatalogUI({
   return (
     <div className="grid gap-y-3 mb-15">
       {cards.map((card) => (
-        <NavLink
-          to={`${link}/product/${card.id}`}
+        <div
           key={card.title}
           className="bg-[var(--bg-carousel-color)] p-3 border border-[var(--border-color-button)] rounded-xl"
         >
@@ -29,15 +28,17 @@ export default function CardCatalogUI({
               </span>
             </div>
             <div className="max-w-25">
-              <CardsButtons />
+              <CardsButtons product={card} />
             </div>
           </div>
           <div className="grid grid-flow-col min-h-28">
-            <img
-              src={card.img}
-              alt={card.title}
-              className="pt-3 pb-3 max-w-[89px] h-full"
-            />
+            <NavLink to={`${link}/product/${card.id}`}>
+              <img
+                src={card.img}
+                alt={card.title}
+                className="pt-3 pb-3 max-w-[89px] h-full"
+              />
+            </NavLink>
             <div className="grid grid-flow-row">
               <span className="h-min [font-family:var(--font-family)] text-[var(--text-title-color)] text-xs font-normal">
                 {card.characteristics.ram} GB RAM,{" "}
@@ -54,7 +55,7 @@ export default function CardCatalogUI({
               </span>
             </div>
           </div>
-        </NavLink>
+        </div>
       ))}
     </div>
   );

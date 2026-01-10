@@ -15,14 +15,14 @@ export default function ProfilePage() {
   return (
     <div className="grid gap-6 p-6 mb-14">
       <div className="grid gap-3 p-4 bg-[var(--bg-banner-color)] rounded-xl">
-        <img src={avatar} alt="Аватар" className="rounded-[150px]" />
+        <img src={avatar} alt="Аватар" className="rounded-[200px]" />
         <div className="grid gap-1.5">
           <label className="[font-family:var(--font-family)] text-[var(--label-text-color)] text-sm font-normal text-start">
             Имя
           </label>
           <input
             type="text"
-            value={name}
+            placeholder={name}
             onChange={(e) => setName(e.target.value)}
             className="bg-[var(--button-text-color)] border border-[var(--border-filter-button)] rounded-xl px-3 w-full h-[40px]"
           />
@@ -33,7 +33,7 @@ export default function ProfilePage() {
           </label>
           <input
             type="text"
-            value={surname}
+            placeholder={surname}
             onChange={(e) => setSurname(e.target.value)}
             className="bg-[var(--button-text-color)] border border-[var(--border-filter-button)] rounded-xl px-3 w-full h-[40px]"
           />
@@ -44,7 +44,7 @@ export default function ProfilePage() {
           </label>
           <input
             type="text"
-            value={email}
+            placeholder={email}
             onChange={(e) => setEmail(e.target.value)}
             className="bg-[var(--button-text-color)] border border-[var(--border-filter-button)] rounded-xl px-3 w-full h-[40px]"
           />
@@ -55,7 +55,7 @@ export default function ProfilePage() {
           </label>
           <input
             type="text"
-            value={city}
+            placeholder={city}
             onChange={(e) => setCity(e.target.value)}
             className="bg-[var(--button-text-color)] border border-[var(--border-filter-button)] rounded-xl px-3 w-full h-[40px]"
           />

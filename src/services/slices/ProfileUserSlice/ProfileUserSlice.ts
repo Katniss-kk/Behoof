@@ -65,8 +65,18 @@ const userSlice = createSlice({
       };
       localStorage.setItem("user_data", JSON.stringify(state.user));
     },
+    registerUser: (state, action: PayloadAction<{token: string, user: IUser}>) => {
+      state.isAuth = true;
+      state.user = action.payload.user;
+      state.isAuth = true;
+      state.token = action.payload.token;
+      setCookie("auth_token", action.payload.token, 7);
+      localStorage.setItem("user_data", JSON.stringify(action.payload.user));
+      state.loading = false;
+    },
   },
 });
 
-export const { login, logout, checkAuth, changeUserInfo } = userSlice.actions;
+export const { login, logout, checkAuth, changeUserInfo, registerUser } =
+  userSlice.actions;
 export default userSlice.reducer;

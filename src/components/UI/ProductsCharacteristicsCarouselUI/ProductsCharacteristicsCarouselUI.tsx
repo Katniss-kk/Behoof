@@ -23,7 +23,7 @@ export default function ProductsCharacteristicsCarouselUI({
                   {product.title}
                 </h4>
               </div>
-              <CardsButtons />
+              <CardsButtons product={product}/>
             </div>
             <div className="grid grid-flow-col gap-x-3">
               <div className="py-2.5 self-center">

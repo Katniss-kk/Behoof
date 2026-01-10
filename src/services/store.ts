@@ -6,10 +6,12 @@ import {
 } from "react-redux";
 import { DataProductsReducer } from "./slices/DataProductsSlice/DataProductsSlice";
 import userReducer from "./slices/ProfileUserSlice/ProfileUserSlice";
+import basketReducer from "./slices/BasketSlice/BasketSlice";
 
 const rootReducer = {
   Products: DataProductsReducer,
   User: userReducer,
+  Basket: basketReducer,
 };
 
 const store = configureStore({

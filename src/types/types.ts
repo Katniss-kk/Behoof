@@ -164,3 +164,12 @@ export interface IButtonFilterBrand {
   activeBrand: string | null;
   setActiveBrand: (brand: string | null) => void;
 }
+
+export interface IButtonRegister {
+  name: string,
+  surName: string,
+  city: string,
+  email: string,
+  pass: string,
+  repeatPass: string
+}
